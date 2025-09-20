@@ -3,24 +3,29 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-*{
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-}
-.container{
-    padding-left:6rem;
-    padding-right:6rem;
+/* styles.css or global.css */
+body {
+  overflow-x: hidden;
 }
 
-.highlight{
-    color:#5ab3b3
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
-.text-color{
-    color:#f3f4f6;
+.container {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.highlight {
+  color: #5ab3b3
+}
+
+.text-color {
+  color: #f3f4f6;
 }
 
 .animate-border {

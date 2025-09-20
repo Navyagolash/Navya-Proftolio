@@ -1,15 +1,51 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import VanillaTilt from 'vanilla-tilt';
+
+
+
+interface TimelineItem {
+  date: string;
+  status: string;
+  title: string;
+  institute?: string;
+  details?: string;
+}
+
+
 @Component({
   selector: 'app-home',
   imports: [CommonModule],
+  standalone: true,
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
+
+
 export class Home {
-  skills = ["HTML/CSS", "Javascript", "Angular", "TypeScript", "RXJS", "API Integration"]
-  tools = ["Visual Studio Code", "Git", "GitHub", "Bitbucket", "Canva", "Postman"]
+  // skills = ["HTML/CSS", "Javascript", "Angular", "TypeScript", "RXJS", "API Integration"]
+  // tools = ["Visual Studio Code", "Git", "GitHub", "Bitbucket", "Canva", "Postman"]
+
+  skills = [
+    { name: 'Angular', icon: 'assets/icons/angular.png' },
+    { name: 'HTML5', icon: 'assets/icons/html.jpeg' },
+    { name: 'CSS3', icon: 'assets/icons/css.png' },
+    { name: 'JavaScript', icon: 'assets/icons/js.png' },
+    { name: 'API', icon: 'assets/icons/api.png' },
+    { name: 'ReactJs', icon: 'assets/icons/react.jpeg' },
+
+  ];
+
+  tools = [
+    { name: 'Visual Studio Code', icon: 'assets/icons/vs.png' },
+    { name: 'Git', icon: 'assets/icons/git.png' },
+    { name: 'GitHub', icon: 'assets/icons/github.png' },
+    { name: 'Bitbucket', icon: 'assets/icons/bitbucket.png' },
+    { name: 'Canva', icon: 'assets/icons/api.png' },
+    { name: 'Postman', icon: 'assets/icons/react.jpeg' },
+
+  ];
+
 
   experience = [
     {
@@ -132,5 +168,72 @@ export class Home {
     }, { threshold: 0.2 });
 
     cards.forEach((card) => observer.observe(card));
+  }
+
+  activeIndex = 0;
+  // timeline = [
+  //   {
+  //     date: '2016 - 2017',
+  //     status: 'Completed',
+  //     title: '10th Standard',
+  //     institute: 'Tr. Gandhi Public School, MP Board',
+  //     details: 'Passed Class 10 with MP Board'
+  //   },
+  //   {
+  //     date: '2018 - 2019',
+  //     status: 'Completed',
+  //     title: '12th Standard',
+  //     institute: 'Tr. Gandhi Public School, MP Board',
+  //     details: 'Passed Class 12 with MP Board'
+  //   },
+  //   {
+  //     date: '2019 - 2023',
+  //     status: 'Graduated',
+  //     title: 'B.Tech in Electronics & Communication Engineering',
+  //     institute: 'UEC',
+  //     details: 'Successfully completed graduation in ECE'
+  //   },
+  //   {
+  //     date: '2024 - PRESENT',
+  //     status: 'Working',
+  //     title: 'Front-end Developer',
+  //     institute: 'Imperial Overseas',
+  //     details: "Started career as a Frontend Developer (Angular, TypeScript, Tailwind CSS)"
+  //   }
+  // ];
+
+  timeline: TimelineItem[] = [
+    {
+      date: '2017',
+      status: 'Completed',
+      title: '10th Standard',
+      institute: 'Tr. Gandhi Public School, MP Board',
+      details: 'Passed Class 10 with MP Board'
+    },
+    {
+      date: '2019',
+      status: 'Completed',
+      title: '12th Standard',
+      institute: 'Tr. Gandhi Public School, MP Board',
+      details: 'Passed Class 12 with MP Board'
+    },
+    {
+      date: '2019 - 2023',
+      status: 'Graduated',
+      title: 'B.Tech in Electronics & Communication Engineering',
+      institute: 'UEC',
+      details: 'Successfully completed graduation in ECE'
+    },
+    {
+      date: '2024 - Present',
+      status: 'Working',
+      title: 'Frontend Developer',
+      institute: 'Imperial Overseas',
+      details: 'Started career as a Frontend Developer (Angular, TypeScript, Tailwind CSS)'
+    }
+  ];
+
+  setActive(index: number) {
+    this.activeIndex = index;
   }
 }

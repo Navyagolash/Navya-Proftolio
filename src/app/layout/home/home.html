@@ -1,139 +1,221 @@
 <div class="w-full p-5 bg-[#455064]">
-    <div class="flex">
-        <div>
-            <h1 class="uppercase font-bold text-white animate-slide-right" style="font-size: 6rem;">FrontEnd <br>Developer</h1>
-            <div class="border w-[30rem] border-[#5ab3b3] border-2"></div>
+    <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Left Content -->
+        <div class="flex-1 text-center md:text-left">
+            <h1
+                class="uppercase font-bold text-white pt-[4rem] animate-slide-right text-4xl sm:text-5xl lg:text-[6rem] sm:leading-tight leading-snug">
+                FrontEnd <br />
+                Developer
+            </h1>
+            <div class="border w-40 sm:w-80 border-[#5ab3b3] border-2 mx-auto md:mx-0"></div>
 
-            <div class="animate-slide-left">
-                <p class="text-color text-[3rem]">Hi, I'm <span class="text-[#5ab3b3] font-bold">Navya Golash</span></p>
-                <p class="text-xl text-color leading-relaxed mb-8">
-                    A passionate <span class="text-[#5ab3b3] font-semibold">Front-End Developer</span> with experience
-                    in building
-                    responsive and dynamic websites using <strong>Angular</strong>, <strong>Tailwind CSS</strong>, and
-                    modern web technologies.
-                    I love turning ideas into reality through clean code and beautiful design.
+            <div class="animate-slide-left mt-4">
+                <p class="text-color text-2xl sm:text-3xl">
+                    Hi, I'm
+                    <span class="text-[#5ab3b3] font-bold">Navya Golash</span>
                 </p>
-                <div class="flex gap-4">
+
+                <p class="text-base sm:text-lg text-color leading-relaxed mb-6">
+                    A passionate
+                    <span class="text-[#5ab3b3] font-semibold">Front-End Developer</span>
+                    with experience in building responsive and dynamic websites using
+                    <strong>Angular</strong>, <strong>Tailwind CSS</strong>, and modern
+                    web technologies. I love turning ideas into reality through clean
+                    code and beautiful design.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
                     <a href="https://www.linkedin.com/in/navya-golash-19869a208/" target="_blank"
-                        class="bg-[#5ab3b3] text-white px-6 py-3 rounded-xl shadow hover:bg-cyan-700 transition">
+                        class="bg-[#5ab3b3] text-white px-6 py-3 rounded-xl shadow hover:bg-cyan-700 transition text-center">
                         View My Work
                     </a>
                     <a href="#contact"
-                        class="bg-gray-100 text-gray-800 px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition">
+                        class="bg-gray-100 text-gray-800 px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition text-center">
                         Contact Me
                     </a>
                 </div>
             </div>
-        </div>
-        <div
-            class="p-[5px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-border inline-block animate-slide-right">
-            <div class="bg-white rounded-full">
-                <img src="assets/Focused and Cool Digital Workspace.png" class="rounded-full w-[51rem]" alt="">
+            <div class="flex flex-wrap gap-4 mt-6">
+                <a href="https://github.com/Navyagolash?tab=repositories" target="_blank"
+                    class="fa fa-github animate-bounce-slow"></a>
+                <a href="#" target="_blank" class="fa fa-instagram"></a>
+                <a href="https://www.linkedin.com/in/navya-golash10/" target="_blank"
+                    class="fa fa-linkedin animate-bounce-slow"></a>
+                <a href="https://www.youtube.com/" target="_blank" class="fa fa-youtube"></a>
+
+
             </div>
         </div>
 
-    </div>
-    <div class="container mx-auto mt-4">
-        <div>
-            <h1 class="text-white text-2xl text-center uppercase text-[3rem] font-bold pb-4 ">Skill</h1>
-            <p class="border-2 border-[#5ab3b3] w-[10rem] justify-self-center"></p>
+        <!-- Right Image -->
+        <div
+            class="p-[5px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-border animate-slide-right flex-shrink-0">
+            <div class="bg-white rounded-full overflow-hidden">
+                <!-- <img src="assets/Focused and Cool Digital Workspace.png"
+                    class="rounded-full w-64 sm:w-96 lg:w-[22rem] max-w-full animate-bounce" alt="Workspace" /> -->
 
+                <img src="assets/Focused and Cool Digital Workspace.png"
+                    class="rounded-full w-64 sm:w-96 lg:w-[22rem] max-w-full animate-bounce-slow" alt="Workspace" />
+
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8  mt-4">
 
-            <!-- Skills Box with animated border -->
+
+    </div>
+
+
+    <div class="container mx-auto mt-8 px-4">
+        <h1 class="text-white text-3xl font-bold text-center uppercase pb-4">
+            Academic & <span class="text-[#5ab3b3]">Professional</span> Background</h1>
+        <p class="border-2 border-[#5ab3b3] w-40 mx-auto mb-8"></p>
+
+
+
+        <div class="relative flex flex-col items-center py-12">
+
+            <!-- Vertical Line -->
+            <div
+                class="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500 via-purple-500 to-pink-500 animate-pulse">
+            </div>
+
+            <!-- Timeline Items -->
+            <div *ngFor="let item of timeline; let i = index"
+                class="relative flex flex-col md:flex-row items-center w-full  mb-12" [ngClass]="{
+        'md:justify-start': i % 2 === 0,
+        'md:justify-end': i % 2 !== 0,
+        'justify-center': true
+      }" (mouseenter)="setActive(i)">
+
+                <!-- Date Circle -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 z-10 resp">
+                    <span class="px-3 py-1 rounded-full text-white font-bold text-sm"
+                        [ngClass]="activeIndex === i ? 'bg-pink-600 animate-pulse' : 'bg-gray-600'">
+                        {{ item.date }}
+                    </span>
+                </div>
+
+                <!-- Card -->
+                <div class="bg-[#1f1b2e] text-white p-6 rounded-xl shadow-xl hover:shadow-2xl border border-gray-700 w-full sm:w-80 mt-8 md:mt-0"
+                    [ngClass]="{ 'border-pink-500 shadow-pink-500/50': activeIndex === i }">
+                    <span class="text-xs px-3 py-1 bg-gray-700 rounded-full">{{ item.status }}</span>
+                    <h3 class="text-xl font-bold mt-2">{{ item.title }}</h3>
+                    <p class="text-gray-400">{{ item.institute }}</p>
+                    <p class="text-sm mt-2">{{ item.details }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="sm:container mx-auto mt-8">
+        <h1 class="text-white text-3xl font-bold text-center uppercase pb-4">Skills</h1>
+        <p class="border-2 border-[#5ab3b3] w-40 mx-auto"></p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <!-- Skills Box -->
             <div class="box flex-col hidden-section left">
                 <div class="p-6">
                     <h3 class="text-2xl font-medium highlight mb-4 text-center">Skills</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <span *ngFor="let skill of skills"
-                            class="bg-[#1f1b2e] py-2 px-4 rounded-lg text-sm text-white shadow">
-                            {{ skill }}
+                            class="bg-[#1f1b2e] py-2 px-4 rounded-lg text-sm text-white shadow flex items-center gap-2">
+                            <img [src]="skill.icon" alt="{{ skill.name }}" class="w-5 h-5 rounded-full">
+                            {{ skill.name }}
                         </span>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Tools Box with animated border -->
+            <!-- Tools Box -->
             <div class="box flex-col hidden-section right">
                 <div class="p-6">
                     <h3 class="text-2xl font-medium highlight mb-4 text-center">Tools</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <span *ngFor="let tool of tools"
-                            class="bg-[#1f1b2e] py-2 px-4 rounded-lg text-sm text-white shadow">
-                            {{ tool }}
+                            class="bg-[#1f1b2e] py-2 px-4 rounded-lg text-sm text-white shadow flex items-center gap-2">
+                            <!-- <i class="{{ tool.icon }}"></i>
+                              -->
+                            <img [src]="tool.icon" alt="{{ tool.name }}" class="w-5 h-5 rounded-full">
+                            {{ tool.name }}
                         </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container mx-auto mt-4">
-        <div>
-            <h1 class="text-white font-bold text-[3rem] uppercase text-center ">experience</h1>
-            <p class="border-2 border-[#5ab3b3] w-[12rem] justify-self-center"></p>
-            <p class="text-color text-justify mt-2">I have worked on various project that showcase my skills in <strong
-                    class="highlight font-bold">Frontend Developer</strong>. My experience includes building responsive
-                website, integrating API and ensuring cross-brower compatibility</p>
-            <p class="text-color text-justify mb-5">I'm always eager to learn new technologies and improve my skills to
-                deliver the best user experience</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="rounded-gradient-border simple hidden-section left">
-                    <div class="rounded-gradient-border-content">
-                        <div *ngFor="let exper of experience">
-                            <h2 class="text-white font-bold">{{exper.company}}</h2>
-                            <span class="highlight font-semibold">{{exper.role}}</span><br>
-                            <span class="italic highlight">{{exper.duration}}</span>
-                            <ul class="list-none pl-6">
-                                <li class="text-color text-justify" *ngFor="let item of exper.description">- {{item}}
-                                </li>
-                            </ul>
-                            <!-- <p class="text-color text-justify">{{exper.description}}</p> -->
-                            <p class="highlight">{{exper.techStack}}</p>
-                        </div>
+
+    <!-- Experience Section -->
+    <div class="sm:container mx-auto mt-8">
+        <h1 class="text-white font-bold text-3xl uppercase text-center">Experience</h1>
+        <p class="border-2 border-[#5ab3b3] w-48 mx-auto mt-2"></p>
+        <p class="text-color text-justify mt-4">
+            I have worked on various projects that showcase my skills in
+            <strong class="highlight font-bold">Frontend Development</strong>.
+            My experience includes building responsive websites, integrating APIs,
+            and ensuring cross-browser compatibility.
+        </p>
+        <p class="text-color text-justify mb-5">
+            I'm always eager to learn new technologies and improve my skills to
+            deliver the best user experience.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="rounded-gradient-border simple hidden-section left">
+                <div class="rounded-gradient-border-content">
+                    <div *ngFor="let exper of experience">
+                        <h2 class="text-white font-bold">{{ exper.company }}</h2>
+                        <span class="highlight font-semibold">{{ exper.role }}</span><br />
+                        <span class="italic highlight">{{ exper.duration }}</span>
+                        <ul class="list-none pl-6">
+                            <li class="text-color text-justify" *ngFor="let item of exper.description">
+                                - {{ item }}
+                            </li>
+                        </ul>
+                        <p class="highlight">{{ exper.techStack }}</p>
                     </div>
                 </div>
-                <div class="hidden-section right">
-                    <img src="assets/experience/exper.png" class="rounded-2xl shadow-2xl" alt="">
-                </div>
+            </div>
+            <div class="hidden-section right flex justify-center">
+                <img src="assets/experience/exper.png"
+                    class="rounded-2xl shadow-2xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" alt="Experience" />
             </div>
         </div>
     </div>
 
-    <div class="container mx-auto mt-4">
-        <div>
-            <h1 class="text-white font-bold uppercase text-[3rem] text-center">Project</h1>
-            <p class="border-2 border-[#5ab3b3] w-[12rem] justify-self-center"></p>
+    <!-- Projects Section -->
+    <div class="sm:container mx-auto mt-8">
+        <h1 class="text-white font-bold uppercase text-3xl text-center">Projects</h1>
+        <p class="border-2 border-[#5ab3b3] w-48 mx-auto mt-2"></p>
 
-            <div class="bg-gray-900 flex justify-center items-center p-10 mt-6 rounded-xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 flex justify-center items-center p-6 sm:p-10 mt-6 rounded-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform -translate-x-20"
+                    data-animate="left">
+                    <h2 class="text-2xl font-bold mb-4">Frontend Development</h2>
+                    <p>
+                        Building responsive, clean, and engaging web interfaces using
+                        Angular & Tailwind CSS.
+                    </p>
+                </div>
 
-                    <!-- Card 1 -->
-                    <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform -translate-x-20"
-                        data-animate="left">
-                        <h2 class="text-2xl font-bold mb-4">Frontend Development</h2>
-                        <p>Building responsive, clean, and engaging web interfaces using Angular & Tailwind CSS.</p>
-                    </div>
+                <!-- Card 2 -->
+                <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform -translate-y-20"
+                    data-animate="top">
+                    <h2 class="text-2xl font-bold mb-4">API Integration</h2>
+                    <p>
+                        Seamless connection of frontend apps with APIs for dynamic
+                        data-driven experiences.
+                    </p>
+                </div>
 
-                    <!-- Card 2 -->
-                    <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform -translate-y-20"
-                        data-animate="top">
-                        <h2 class="text-2xl font-bold mb-4">API Integration</h2>
-                        <p>Seamless connection of frontend apps with APIs for dynamic data-driven experiences.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform translate-x-20"
-                        data-animate="right">
-                        <h2 class="text-2xl font-bold mb-4">Project Management</h2>
-                        <p>Organizing tasks, tracking progress, and ensuring timely delivery of features.</p>
-                    </div>
-
+                <!-- Card 3 -->
+                <div class="card border-4 border-transparent hover:border-[#5ab3b3] transition-all duration-500 rounded-lg p-6 text-white opacity-0 transform translate-x-20"
+                    data-animate="right">
+                    <h2 class="text-2xl font-bold mb-4">Project Management</h2>
+                    <p>
+                        Organizing tasks, tracking progress, and ensuring timely delivery
+                        of features.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>

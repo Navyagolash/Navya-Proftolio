@@ -1,18 +1,47 @@
-<nav class="w-full">
-    <div class="flex bg-gray-800 drop-shadow-[0_4px_6px_rgba(59,130,246,0.5)] justify-between items-center text-white">
-        <div class="flex w-full justify-between">
-            <img src="assets/logo.png" class="w-[6%] rounded-xl" alt="logo">
-            <div>
-                <ul class="list-none flex gap-6 items-center w-full  text-white p-4 font-bold cursor-pointer hover:drop-shadow-gray-500">
-                    <li><a routerLink="/">Home</a></li>
-                    <li><a routerLink="about">About</a></li>
-                    <li>Project</li>
-                    <li>Blogs</li>
-                    <li>Contact Us</li>
-                </ul>
-            </div>
+<nav class="w-full bg-gray-800 text-white shadow-lg fixed top-0 left-0 z-50">
+    <div class="flex justify-between items-center px-4 py-3 md:px-8">
+        <!-- Logo -->
+        <img src="assets/logo.png" class="w-12 rounded-xl" alt="logo">
 
-        </div>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex gap-6 font-bold">
+            <li>
+                <a routerLink="/" routerLinkActive="text-blue-400"
+                    class="transition duration-300 hover:text-blue-400">Home</a>
+            </li>
+            <li>
+                <a routerLink="/about" routerLinkActive="text-blue-400"
+                    class="transition duration-300 hover:text-blue-400">About</a>
+            </li>
+            <li><a class="transition duration-300 hover:text-blue-400">Projects</a></li>
+            <li><a class="transition duration-300 hover:text-blue-400">Blogs</a></li>
+            <li><a class="transition duration-300 hover:text-blue-400">Contact Us</a></li>
+        </ul>
 
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+            <!-- Hamburger -->
+            <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Close -->
+            <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div *ngIf="isMenuOpen"
+        class="md:hidden fixed top-0 left-0 w-full h-screen bg-gray-900 bg-opacity-95 flex flex-col items-center justify-center space-y-6 animate-slide-down">
+        <a routerLink="/" routerLinkActive="text-blue-400"
+            class="text-2xl font-bold transition duration-300 hover:text-blue-400" (click)="toggleMenu()">Home</a>
+        <a routerLink="/about" routerLinkActive="text-blue-400"
+            class="text-2xl font-bold transition duration-300 hover:text-blue-400" (click)="toggleMenu()">About</a>
+        <a class="text-2xl font-bold transition duration-300 hover:text-blue-400" (click)="toggleMenu()">Projects</a>
+        <a class="text-2xl font-bold transition duration-300 hover:text-blue-400" (click)="toggleMenu()">Blogs</a>
+        <a class="text-2xl font-bold transition duration-300 hover:text-blue-400" (click)="toggleMenu()">Contact Us</a>
     </div>
 </nav>

@@ -5,3 +5,10 @@
     height: 20rem;
 
 }
+
+     
+@media (max-width:670px){
+    .banner{
+    background-image: url('../../../../public/images.jpg');
+    }
+}

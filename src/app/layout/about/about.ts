@@ -8,8 +8,9 @@ interface Skill {
 @Component({
   selector: 'app-about',
   imports: [CommonModule],
+  standalone: true,  
   templateUrl: './about.html',
-  styleUrl: './about.css'
+  styleUrls: ['./about.css']
 })
 
 export class About {
