@@ -1,0 +1,176 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: sans-serif;
+  gap: 10px;
+  color: #eee;
+
+  width: 100%;
+  aspect-ratio: auto;
+  border-radius: 30px;
+  border: 5px solid transparent;
+
+  animation: gradientBorder 3s linear infinite;
+  background: linear-gradient(to right, #120020, #120020) content-box,
+    conic-gradient(from var(--angle),
+      #120020 0deg,
+      #f36fff 53.3deg,
+      #268aff 90.46deg,
+      #52eaea 126.24deg,
+      #120020 178.82deg,
+      #120020 360deg) border-box;
+}
+
+@keyframes gradientBorder {
+  from {
+    --angle: 0turn;
+  }
+
+  to {
+    --angle: 1turn;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.rounded-gradient-border {
+  position: relative;
+  padding: 2px;
+  /* Creates border effect */
+  border-radius: 1rem;
+  background: linear-gradient(270deg, #01f8f8, #97a2a2, #ff00ff);
+  /* Start color */
+  background-size: 600% 600%;
+  animation: gradientBorder 6s ease infinite;
+}
+
+.rounded-gradient-border-content {
+  border-radius: 1rem;
+  background-color: #1f2937;
+  /* Tailwind's gray-800 */
+  padding: 1.5rem;
+  height: 100%;
+  color: white;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.tilt-container {
+  border-radius: 1rem;
+  background: linear-gradient(270deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 600% 600%;
+  padding: 0.25rem;
+  animation: gradientSlide 6s ease infinite;
+}
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Inner content styling */
+.card-content {
+  background-color: #1f2937;
+  /* Tailwind gray-800 */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: white;
+}
+
+@keyframes border-animate {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-border {
+  background-size: 200% 200%;
+  animation: border-animate 4s linear infinite;
+}
+
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.hidden-section.left {
+  transform: translateX(-50px);
+}
+
+.hidden-section.right {
+  transform: translateX(50px);
+}
+
+.hidden-section.show {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}

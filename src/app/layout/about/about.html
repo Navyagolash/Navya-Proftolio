@@ -1,0 +1,157 @@
+<div class="banner relative">
+    <h2 class="absolute"></h2>
+</div>
+<div class="bg-[#455064] w-full">
+    <div class="flex gap-4 p-[3rem]">
+        <div class="w-[60%] animate-slide-left">
+            <h1 class="highlight font-bold text-[58px]">About Me</h1>
+            <div class="border w-[30rem] border-[#5ab3b3] border-2"></div>
+            <p class="text-color py-3 text-justify">I’m <strong class="highlight font-semibold">Navya Golash</strong>, a
+                passionate Front-End Developer with a knack for building clean, responsive, and engaging web
+                applications. I
+                specialize in Angular, Tailwind CSS, HTML, CSS, JavaScript, and TypeScript.</p>
+
+            <p class="text-color py-3 text-justify">I graduated in Electronics and Communication Engineering in 2023,
+                and since then, I’ve been dedicated to
+                creating digital experiences that are both functional and visually appealing. Currently, I’m expanding
+                my
+                skills in backend development and APIs to become a full-stack developer.</p>
+
+            <p class="text-color py-3 text-justify">When I’m not coding, you’ll find me exploring new tech trends,
+                improving UI/UX designs, or experimenting
+                with creative projects. My goal is simple — to turn ideas into seamless, user-friendly web experiences.
+            </p>
+            <p class="highlight font-medium text-sm italic">Turning ideas into responsive, user-friendly websites</p>
+
+            <button
+                class="bg-gray-100 text-gray-800 px-6 py-3 rounded-xl shadow hover:bg-gray-200 transition mt-5 font-bold"><a
+                    href="https://www.linkedin.com/in/navya-golash-19869a208/">My Resume</a></button>
+        </div>
+        <div class="w-[40%] justify-center flex animate-slide-right">
+            <img src="assets/intro.webp" alt="">
+        </div>
+    </div>
+
+    <div class="container mx-auto">
+        <div>
+            <h1 class="highlight font-bold uppercase text-center text-2xl">Background – My Journey</h1>
+            <div class="border w-[26rem] border-[#5ab3b3] border-2 justify-self-center my-2"></div>
+            <div class="flex gap-4">
+                <div class="animate-slide-left">
+                    <p class="text-color text-justify">My journey into tech started with a curiosity for how websites
+                        and
+                        applications work behind the scenes.
+                        I graduated in Electronics and Communication Engineering in 2023, where I built a strong
+                        foundation in
+                        problem-solving and logical thinking.</p>
+                    <br>
+
+
+                    <p class="text-color text-justify">During my college years, I discovered my passion for web
+                        development —
+                        transforming ideas into
+                        interactive digital experiences. I started with HTML, CSS, and JavaScript, then quickly moved to
+                        Angular
+                        and Tailwind CSS, building projects that focused on clean design and smooth user experiences.
+                    </p>
+
+                    <br>
+                    <p class="text-color text-justify">Currently, I’m working as a Front-End Developer, sharpening my
+                        skills in
+                        modern UI development and
+                        learning backend technologies to grow into a full-stack developer. My journey is driven by a
+                        love for
+                        learning, experimenting, and bringing creative visions to life through code.</p>
+
+                </div>
+                <div class="w-full animate-slide-left">
+                    <img src="assets/journey.webp" class="rounded-2xl" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mx-auto my-6">
+        <section #skillsSection class="relative py-16 bg-cover bg-center rounded-2xl overflow-hidden"
+            style="background-image: url('assets/skills-bg.png');">
+
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a]/80 via-[#0a0a0a]/50 to-transparent"></div>
+
+            <!-- Decorative shapes -->
+            <div class="absolute top-10 left-10 w-40 h-40 bg-[#5ab3b3]/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-52 h-52 bg-[#5ab3b3]/10 rounded-full blur-2xl animate-bounce">
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 container mx-auto px-6">
+
+                <!-- Heading -->
+                <h1 [ngClass]="{'opacity-0 translate-y-10': !inView, 'opacity-100 translate-y-0': inView}"
+                    class="transition-all duration-1000 ease-out text-3xl font-bold text-center highlight mb-4 tracking-wider">
+                    SKILLS & SPECIALIZATION
+                </h1>
+                <div class="border w-40 border-[#5ab3b3] mx-auto mb-10"
+                    [ngClass]="{'opacity-0 scale-75': !inView, 'opacity-100 scale-100': inView}"
+                    class="transition-all duration-1000 ease-out delay-200"></div>
+
+                <!-- Skills Grid -->
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div *ngFor="let skill of skills; let i = index" [ngClass]="{
+            'opacity-0 translate-y-10': !inView,
+            'opacity-100 translate-y-0': inView
+          }" [style.transitionDelay]="(i * 150) + 'ms'" class="transition-all duration-700 ease-out bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 flex flex-col items-start 
+                 transform hover:scale-105 hover:shadow-[0_0_20px_#5ab3b3]">
+                        <h3 class="text-lg font-semibold text-white mb-2">{{ skill.title }}</h3>
+                        <p class="text-gray-200 text-sm">{{ skill.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="container mx-auto my-6">
+        <div>
+
+            <section #passionSection class="relative py-20 bg-cover bg-center overflow-hidden"
+                style="background-image: url('assets/passion-bg.jpg');">
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+
+                <!-- Content -->
+                <div [ngClass]="{'opacity-0 translate-y-10': !inView, 'opacity-100 translate-y-0': inView}"
+                    class="relative z-10 container mx-auto px-6 transition-all duration-1000 ease-out">
+
+                    <h1 class="text-2xl font-bold highlight mb-2 tracking-wider uppercase text-center">
+                        Passion & Approach
+                    </h1>
+                    <div class="border w-[26rem] border-[#5ab3b3] border-2 justify-self-center my-2"></div>
+
+
+                    <div class="flex gap-4">
+                        <div>
+                            <p class="text-color animate-slide-left">
+                                I believe great web development is a mix of creativity, precision, and problem-solving.
+                                My passion lies in crafting seamless, engaging digital experiences that not only look
+                                good but
+                                also perform flawlessly.
+                                I approach every project with curiosity, attention to detail, and a drive to learn new
+                                technologies — ensuring the end result is both innovative and impactful.
+                            </p>
+                        </div>
+                        <div class="w-full animate-slide-right">
+                            <img src="assets/passion.jpg" class="rounded-2xl" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+
+</div>
