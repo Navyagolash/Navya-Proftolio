@@ -1,5 +1,6 @@
 import { Component , HostListener, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 interface Skill {
   title: string;
   description: string;
@@ -7,7 +8,7 @@ interface Skill {
 }
 @Component({
   selector: 'app-about',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })

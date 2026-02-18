@@ -1,9 +1,11 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import VanillaTilt from 'vanilla-tilt';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
